@@ -1,5 +1,5 @@
 export class Produit {
-    ref?:string;
+    ref:string;
     quantite?: number;
     prixUnitaire?: number
 }
