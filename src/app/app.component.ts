@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from './service/app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'ClientGestionStockProduits';
+  
 
-  showSideBarFromNavBar:boolean = false;
-  showHideSideBar(showSideBar:boolean){
-    this.showSideBarFromNavBar = showSideBar;
-  }
+  constructor(private appservice: AppService,
+              private router: Router){}
 
   ngOnInit(): void {
+    if(!this.appservice.authenticated){
+      this.router.navigateByUrl('/login');
+    }
+    else{
+      this.router.navigateByUrl('/home');
+    }
   }
 }

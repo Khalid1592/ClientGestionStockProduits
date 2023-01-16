@@ -19,4 +19,8 @@ export class NavbarComponent implements OnInit{
     this.showSideBar =! this.showSideBar;
     this.showHideSideBarEvent.emit(this.showSideBar);
   }
+
+  logOut(){
+    
+  }
 }

@@ -9,6 +9,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { AppService } from './service/app.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,13 +21,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NavbarComponent,
     SidebarComponent,
     ContentComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [ProduitMockService],
+  providers: [ProduitMockService, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
