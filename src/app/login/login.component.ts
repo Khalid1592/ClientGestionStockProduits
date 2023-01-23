@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   logIn(){
     this.appServivce.authenticate(this.credentials, ()=> {
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/home/(contentOutlet:produit)');
     });
   }
 }

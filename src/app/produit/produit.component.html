@@ -10,7 +10,7 @@
                         <th>Réference</th>
                         <th>Quantité</th>
                         <th>Prix</th>
-                        <th><button class="btn btn-outline-primary" (click)="operation = 'add'; initProduit()">ADD</button></th>
+                        <th><button class="btn btn-outline-primary" (click)="operation = 'add'; initProduit();">ADD</button></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="alert alert-danger" 
                             *ngIf="produitForm.controls['ref'].invalid && (produitForm.controls['ref'].touched || produitForm.controls['ref'].dirty)">
-                                Réference est obligatoire!
+                                Référence est obligatoire!
                             </div>
                             <div class="form-group">
                                 <label class="pb-3">Quantité</label>

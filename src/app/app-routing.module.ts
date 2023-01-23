@@ -4,6 +4,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProduitComponent } from './produit/produit.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { ProduitResolver } from './produit/produit.resolver';
+
 
 const routes: Routes = [
   {
@@ -12,15 +14,22 @@ const routes: Routes = [
   },
   {
     path: 'home', 
-    component:HomeComponent
-  },
-  {
-    path: 'dashboard', 
-    component:DashboardComponent
-  },
-  {
-    path: 'produit', 
-  component:ProduitComponent
+    component:HomeComponent,
+    children:[
+      {
+        path: 'dashboard', 
+        component:DashboardComponent,
+        outlet: 'contentOutlet'
+      },
+      {
+        path: 'produit', 
+        component:ProduitComponent,
+        resolve: {
+          produits: ProduitResolver
+        },
+        outlet: 'contentOutlet'
+      }
+    ]
   },
   {
     path: '', redirectTo:'/home', 
@@ -30,6 +39,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes,{enableTracing:false})],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [ProduitResolver]
 })
 export class AppRoutingModule { }
